@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GREEN WORLD — Зелений світ</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --green: #245b3b;
+    --dark: #173b29;
+    --light: #eaf2e7;
+    --page: #f7f9f4;
+    --accent: #8bbf78;
+}
+
+/* ГОЛОВНЕ ВИПРАВЛЕННЯ ФОНУ */
+
+html {
+    width: 100%;
+    min-height: 100%;
+    background: var(--page) !important;
+    scroll-padding-top: 85px;
+}
+
+body {
+    width: 100%;
+    min-width: 0;
+    min-height: 100vh;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: Arial, sans-serif;
+    color: #263b2d;
+    line-height: 1.7;
+    background: var(--page) !important;
+    overflow-x: clip;
+}
+
+/* Загальний контейнер */
+#site {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--page) !important;
+    display: flow-root;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* МЕНЮ */
+
+nav {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    align-self: start;
+    width: 100%;
+    background: var(--dark);
+    padding: 15px 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 3px 15px #0002;
+}
+
+.logo {
+    color: white;
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 13px;
+    border-radius: 20px;
+    transition: .3s;
+    font-size: 14px;
+}
+
+.menu a:hover {
+    background: #527d55;
+}
+
+section {
+    width: 100%;
+    padding: 75px 0;
+    scroll-margin-top: 85px;
+}
+
+/* ГОЛОВНА */
+
+header {
+    width: 100%;
+    min-height: 570px;
+    background:
+    linear-gradient(#102c2080, #102c2080),
+    url("https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1800");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 60px 20px;
+}
+
+.hero {
+    max-width: 850px;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 7vw, 75px);
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    padding: 13px 25px;
+    background: #659b59;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 10px 5px;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: #376d43;
+    transform: translateY(-3px);
+}
+
+.btn-light {
+    background: white;
+    color: #245b3b;
+}
+
+/* ЗАГАЛЬНІ РОЗДІЛИ */
+
+.container {
+    width: 92%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 36px;
+    color: var(--green);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 35px;
+    color: #657568;
+}
+
+/* КАРТКИ */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px #173b2912;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px #173b2925;
+}
+
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card h3 {
+    color: var(--green);
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.card p {
+    color: #637166;
+    margin-bottom: 12px;
+}
+
+/* ІНФОРМАЦІЙНИЙ БЛОК */
+
+.info-box {
+    background: var(--light);
+    padding: 35px;
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+.info-box h3 {
+    color: var(--green);
+    margin-bottom: 10px;
+    font-size: 23px;
+}
+
+/* ПОШУК */
+
+.search {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    margin: 25px auto;
+    padding: 15px;
+    border: 2px solid #c8ddc5;
+    border-radius: 30px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search:focus {
+    border-color: #659b59;
+}
+
+.filters {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* ФАКТИ */
+
+.fact-box {
+    background: linear-gradient(120deg, #245b3b, #397b4c);
+    color: white;
+    padding: 45px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.fact-box h2 {
+    color: white;
+}
+
+#factText {
+    font-size: 19px;
+    margin: 20px auto;
+    max-width: 700px;
+    min-height: 55px;
+}
+
+/* ГАЛЕРЕЯ */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* ВІКТОРИНА */
+
+.quiz {
+    background: var(--light);
+    padding: 35px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.quiz button {
+    margin: 8px;
+}
+
+#quizResult {
+    font-weight: bold;
+    margin-top: 15px;
+    min-height: 30px;
+}
+
+/* МОДАЛЬНЕ ВІКНО */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    inset: 0;
+    background: #0009;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 550px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-content h2 {
+    font-size: 27px;
+}
+
+.close {
+    position: absolute;
+    right: 18px;
+    top: 10px;
+    border: none;
+    background: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--green);
+}
+
+/* ФУТЕР */
+
+footer {
+    width: 100%;
+    background: var(--dark);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin: 0;
+}
+
+footer a {
+    color: #c6e4bd;
+}
+
+/* МОБІЛЬНА ВЕРСІЯ */
+
+@media(max-width: 800px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        justify-content: center;
+    }
+}
+
+@media(max-width: 550px) {
+    .grid, .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .menu {
+        justify-content: center;
+    }
+
+    .menu a {
+        font-size: 12px;
+        padding: 7px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .fact-box, .quiz {
+        padding: 25px 15px;
+    }
+
+    .container {
+        width: 94%;
+    }
+
+    section {
+        padding: 55px 0;
+    }
+}
+</style>
+</head>
+
+<body>
+<div id="site">
+
+<nav>
+    <div class="logo">🌿 GREEN WORLD</div>
+    <div class="menu">
+        <a href="#home">Головна</a>
+        <a href="#about">Про рослини</a>
+        <a href="#types">Види</a>
+        <a href="#plants">Рослини</a>
+        <a href="#facts">Факти</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#quiz">Вікторина</a>
+    </div>
+</nav>
+
+<header id="home">
+    <div class="hero">
+        <h1>Зелений світ</h1>
+        <p>
+        Рослини — дивовижна частина нашої планети.
+        Вони створюють кисень, підтримують життя,
+        прикрашають Землю та приховують безліч таємниць.
+        </p>
+        <a href="#about" class="btn btn-light">
+        Досліджувати світ рослин ↓
+        </a>
+    </div>
+</header>
+
+<main>
+
+<section id="about">
+<div class="container">
+<h2>🌱 Що ми знаємо про рослини?</h2>
+<p class="subtitle">
+Рослини — це велика група живих організмів,
+які відіграють надзвичайно важливу роль
+у природі та житті людини.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800" alt="Зелені рослини">
+<div class="card-content">
+<h3>Фотосинтез</h3>
+<p>За допомогою сонячного світла рослини утворюють органічні речовини з води та вуглекислого газу, виділяючи кисень.</p>
+</div></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800" alt="Природа">
+<div class="card-content">
+<h3>Значення в природі</h3>
+<p>Рослини є основою багатьох харчових ланцюгів, створюють середовище існування та захищають ґрунти.</p>
+</div></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=800" alt="Кімнатні рослини">
+<div class="card-content">
+<h3>Користь для людини</h3>
+<p>Вони забезпечують нас їжею, деревиною, волокнами, лікарською сировиною та іншими ресурсами.</p>
+</div></div>
+
+</div>
+
+<div class="info-box">
+<h3>Як влаштована рослина?</h3>
+<p>
+Основними органами більшості вищих рослин є корінь і пагін.
+Корінь закріплює рослину в ґрунті та поглинає воду з мінеральними речовинами.
+Стебло підтримує листки й квітки та проводить речовини.
+Листки здійснюють фотосинтез, газообмін і випаровування води.
+Квітка бере участь у статевому розмноженні квіткових рослин.
+</p>
+</div>
+</div>
+</section>
+
+<section id="types" style="background:#edf3e9">
+<div class="container">
+<h2>🌳 Різноманітність рослин</h2>
+<p class="subtitle">
+Рослинний світ надзвичайно різноманітний.
+Рослини відрізняються будовою, способом розмноження
+та умовами існування.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800" alt="Квіткові рослини">
+<div class="card-content">
+<h3>Квіткові рослини</h3>
+<p>Мають квітки, після запліднення яких зазвичай утворюються плоди з насінням.</p>
+</div></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800" alt="Хвойний ліс">
+<div class="card-content">
+<h3>Хвойні рослини</h3>
+<p>Переважно деревні рослини, які утворюють насіння в шишках.</p>
+</div></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800" alt="Папороть">
+<div class="card-content">
+<h3>Папороті</h3>
+<p>Не утворюють квіток і насіння, а розмножуються спорами.</p>
+</div></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=800" alt="Мохи">
+<div class="card-content">
+<h3>Мохи</h3>
+<p>Невеликі рослини, які часто ростуть у вологих місцях і розмножуються спорами.</p>
+</div></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=800" alt="Водні рослини">
+<div class="card-content">
+<h3>Водні рослини</h3>
+<p>Пристосовані до життя у воді або на її поверхні. Наприклад, латаття.</p>
+</div></div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=800" alt="Пустельний ландшафт">
+<div class="card-content">
+<h3>Рослини пустель</h3>
+<p>Мають особливі пристосування, які допомагають виживати за нестачі води.</p>
+</div></div>
+
+</div>
+</div>
+</section>
+
+<section id="plants">
+<div class="container">
+<h2>🌸 Познайомтеся з рослинами</h2>
+<p class="subtitle">
+Знайдіть цікаву рослину та дізнайтеся більше про неї.
+</p>
+
+<input type="text" id="search" class="search"
+placeholder="🔎 Знайти рослину..."
+oninput="searchPlants()">
+
+<div class="filters">
+<button class="btn" onclick="filterPlants('all')">Усі</button>
+<button class="btn" onclick="filterPlants('flower')">Квіти</button>
+<button class="btn" onclick="filterPlants('tree')">Дерева</button>
+<button class="btn" onclick="filterPlants('other')">Інші</button>
+</div>
+
+<div class="grid" id="plantGrid">
+
+<div class="card plant" data-type="flower" data-name="троянда">
+<img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=800" alt="Троянда">
+<div class="card-content">
+<h3>🌹 Троянда</h3>
+<p>Одна з найвідоміших декоративних квіткових рослин.</p>
+<button class="btn" onclick="showInfo('Троянда','Троянди належать до родини Розові. Існують тисячі сортів із різними формами та кольорами квіток. Їх вирощують у садах, парках і теплицях.')">Дізнатися більше</button>
+</div></div>
+
+<div class="card plant" data-type="flower" data-name="соняшник">
+<img src="https://images.unsplash.com/photo-1470509037663-253afd7f0f51?w=800" alt="Соняшник">
+<div class="card-content">
+<h3>🌻 Соняшник</h3>
+<p>Відома рослина, яку вирощують заради насіння та олії.</p>
+<button class="btn" onclick="showInfo('Соняшник','Соняшник походить із Північної Америки. Його насіння використовують у харчуванні та для виробництва олії. Суцвіття складається з багатьох дрібних квіток.')">Дізнатися більше</button>
+</div></div>
+
+<div class="card plant" data-type="tree" data-name="дуб">
+<img src="https://images.unsplash.com/photo-1511497584788-876760111969?w=800" alt="Дуб">
+<div class="card-content">
+<h3>🌳 Дуб</h3>
+<p>Могутнє дерево, яке може жити сотні років.</p>
+<button class="btn" onclick="showInfo('Дуб','Дуб — листяне дерево родини Букові. Його плоди називаються жолудями. Дубові ліси є важливим середовищем існування для багатьох тварин.')">Дізнатися більше</button>
+</div></div>
+
+<div class="card plant" data-type="other" data-name="кактус">
+<img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=800" alt="Кактус">
+<div class="card-content">
+<h3>🌵 Кактус</h3>
+<p>Рослина, пристосована до життя в посушливих умовах.</p>
+<button class="btn" onclick="showInfo('Кактус','Кактуси переважно ростуть у посушливих регіонах Америки. Їхні стебла накопичують воду, а листки часто перетворені на колючки.')">Дізнатися більше</button>
+</div></div>
+
+<div class="card plant" data-type="flower" data-name="орхідея">
+<img src="https://images.unsplash.com/photo-1740967344501-bfb6eb0e86c6?auto=format&fit=crop&w=1000&q=85" alt="Орхідея">
+<div class="card-content">
+<h3>🌺 Орхідея</h3>
+<p>Велика родина рослин із надзвичайно різноманітними квітками.</p>
+<button class="btn" onclick="showInfo('Орхідея','Орхідні — одна з найбільших родин квіткових рослин. Багато видів ростуть у тропіках, а деякі пристосувалися до помірного клімату. Орхідеї мають дуже різноманітну форму та забарвлення квіток.')">Дізнатися більше</button>
+</div></div>
+
+<div class="card plant" data-type="tree" data-name="сосна">
+<img src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?w=800" alt="Сосна">
+<div class="card-content">
+<h3>🌲 Сосна</h3>
+<p>Вічнозелене хвойне дерево з довгими голками.</p>
+<button class="btn" onclick="showInfo('Сосна','Сосна належить до хвойних рослин. Її листки мають вигляд голок, а насіння формується в шишках. Вона добре пристосовується до різних умов середовища.')">Дізнатися більше</button>
+</div></div>
+
+</div>
+</div>
+</section>
+
+<section id="facts" style="background:#edf3e9">
+<div class="container">
+<div class="fact-box">
+<h2>🌿 Цікаві факти про рослини</h2>
+<p id="factText">Натисни кнопку, щоб відкрити цікавий факт!</p>
+<button class="btn btn-light" onclick="newFact()">Наступний факт →</button>
+</div>
+</div>
+</section>
+
+<section id="gallery">
+<div class="container">
+<h2>📸 Галерея природи</h2>
+<p class="subtitle">Неймовірна краса рослинного світу в фотографіях.</p>
+
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1497250681960-ef046c08a56e?w=800" alt="Кімнатна рослина">
+<img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?w=800" alt="Зелений ліс">
+<img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800" alt="Квіти">
+<img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=800" alt="Листя">
+<img src="https://images.unsplash.com/photo-1504545102780-26774c1bb073?w=800" alt="Природа">
+<img src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800" alt="Ліс">
+<img src="https://images.unsplash.com/photo-1740967344501-bfb6eb0e86c6?auto=format&fit=crop&w=800&q=85" alt="Орхідея">
+<img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?w=800" alt="Кактус">
+<img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?w=800" alt="Троянда">
+</div>
+</div>
+</section>
+
+<section id="quiz" style="background:#edf3e9">
+<div class="container">
+<h2>🧠 Перевір свої знання!</h2>
+<p class="subtitle">Невелика вікторина про рослинний світ.</p>
+
+<div class="quiz">
+<h3 id="question"></h3>
+<div id="answers"></div>
+<p id="quizResult"></p>
+<button class="btn" onclick="nextQuestion()">Наступне запитання →</button>
+</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>Бережімо природу! 💚</h2>
+<p class="subtitle">
+Рослини є невід'ємною частиною життя на Землі.
+Вони підтримують природну рівновагу, забезпечують
+життя багатьох організмів і роблять нашу планету красивою.
+Піклуймося про зелені насадження та зберігаймо біорізноманіття!
+</p>
+<div style="text-align:center">
+<a href="#home" class="btn">⬆ Повернутися нагору</a>
+<a href="#plants" class="btn">🌱 До рослин</a>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer>
+<h3>🌿 GREEN WORLD</h3>
+<p>Відкривай. Досліджуй. Бережи.</p>
+<p>Навчальний проєкт · 2026</p>
+</footer>
+
+<div class="modal" id="modal" onclick="outsideClose(event)">
+<div class="modal-content">
+<button class="close" onclick="closeInfo()">×</button>
+<h2 id="modalTitle"></h2>
+<p id="modalText"></p>
+<button class="btn" onclick="closeInfo()">Закрити</button>
+</div>
+</div>
+
+</div>
+
+<script>
+
+/* ПОШУК */
+
+function searchPlants() {
+    let value = document.getElementById("search").value.toLowerCase();
+    let cards = document.querySelectorAll(".plant");
+
+    cards.forEach(card => {
+        card.style.display =
+            card.dataset.name.includes(value) ? "block" : "none";
+    });
+}
+
+/* ФІЛЬТРИ */
+
+function filterPlants(type) {
+    let cards = document.querySelectorAll(".plant");
+
+    cards.forEach(card => {
+        card.style.display =
+            type === "all" || card.dataset.type === type
+            ? "block" : "none";
+    });
+
+    document.getElementById("search").value = "";
+}
+
+/* ІНФОРМАЦІЯ ПРО РОСЛИНИ */
+
+function showInfo(title, text) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalText").innerText = text;
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeInfo() {
+    document.getElementById("modal").style.display = "none";
+}
+
+function outsideClose(event) {
+    if(event.target.id === "modal") {
+        closeInfo();
+    }
+}
+
+/* ФАКТИ */
+
+let facts = [
+    "Бамбук може рости надзвичайно швидко: деякі види за сприятливих умов виростають майже на метр за добу!",
+    "Найбільша окрема квітка у світі належить рафлезії Арнольда. Вона може сягати близько метра в діаметрі.",
+    "Секвоя гігантська належить до наймасивніших дерев на планеті.",
+    "Венерина мухоловка — хижа рослина, яка ловить дрібних комах за допомогою спеціальних листків-пасток.",
+    "Соняшник належить до родини Айстрові, а його суцвіття складається з багатьох маленьких квіток.",
+    "Лишайники виникають завдяки співіснуванню гриба та водорості або ціанобактерії.",
+    "Деякі пустельні рослини можуть переживати тривалі періоди посухи завдяки особливим пристосуванням."
+];
+
+function newFact() {
+    let random = Math.floor(Math.random() * facts.length);
+    document.getElementById("factText").innerText = facts[random];
+}
+
+/* ВІКТОРИНА */
+
+let questions = [
+    {
+        q: "Який процес забезпечує утворення органічних речовин у рослин?",
+        a: ["Дихання", "Фотосинтез", "Випаровування"],
+        correct: 1
+    },
+    {
+        q: "Який орган рослини поглинає воду з ґрунту?",
+        a: ["Корінь", "Квітка", "Плід"],
+        correct: 0
+    },
+    {
+        q: "Як розмножуються папороті?",
+        a: ["Насінням", "Спорами", "Цибулинами"],
+        correct: 1
+    },
+    {
+        q: "Яка рослина пристосована до життя в пустелі?",
+        a: ["Кактус", "Латаття", "Конвалія"],
+        correct: 0
+    },
+    {
+        q: "Що утворюється після запліднення у квіткових рослин?",
+        a: ["Тільки корінь", "Плід і насіння", "Нова квітка"],
+        correct: 1
+    }
+];
+
+let current = 0;
+let finished = false;
+
+function loadQuestion() {
+    finished = false;
+
+    let q = questions[current];
+
+    document.getElementById("question").innerText = q.q;
+    document.getElementById("quizResult").innerText = "";
+    document.getElementById("answers").innerHTML = "";
+
+    q.a.forEach((option, index) => {
+        let button = document.createElement("button");
+        button.className = "btn";
+        button.innerText = option;
+        button.onclick = () => answer(index);
+        document.getElementById("answers").appendChild(button);
+    });
+}
+
+function answer(index) {
+    if(finished) return;
+
+    finished = true;
+
+    let correct = questions[current].correct;
+
+    if(index === correct) {
+        document.getElementById("quizResult").innerText =
+        "✅ Правильно! Чудова робота!";
+    } else {
+        document.getElementById("quizResult").innerText =
+        "❌ Не зовсім правильно. Відповідь: " +
+        questions[current].a[correct];
+    }
+}
+
+function nextQuestion() {
+    current++;
+
+    if(current >= questions.length) {
+        current = 0;
+        document.getElementById("question").innerText =
+        "🎉 Вікторину завершено! Можеш пройти її ще раз.";
+        document.getElementById("answers").innerHTML = "";
+        document.getElementById("quizResult").innerText =
+        "Дякуємо за участь!";
+        finished = true;
+        return;
+    }
+
+    loadQuestion();
+}
+
+loadQuestion();
+
+</script>
+</body>
+</html>
